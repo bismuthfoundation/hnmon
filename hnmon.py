@@ -34,7 +34,7 @@ def locate(ip_list):
 def get_next_id():
     with open("sessions.json", "r") as session_file:
         session_dict = json.loads(session_file.read())
-        return int(max(session_dict.keys())) + 1
+        return session_dict["highest"] + 1
 
 def load_session(number):
     with open("sessions.json", "r") as session_file:
@@ -47,6 +47,7 @@ def save_session(data):
 
     id = get_next_id()
     session_dict[id] = data
+    session_dict["highest"] = id
 
     with open("sessions.json", "w") as session_file:
         session_file.write(json.dumps(session_dict))
