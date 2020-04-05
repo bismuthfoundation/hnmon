@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Selected hypernodes</title>
+    <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="655e58efa2fda60e82186aff-|49" defer=""></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+  </head>
+  <body>
+
+  <div align="center">
+
+<div class="panel panel-default">
+  <div class="panel-heading" ><h3>Selected Hypernodes</h3></div>
+  <div class="panel-body" style="width: 50%;">
+
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">IP</th>
+      <th scope="col">Block</th>
+      <th scope="col">Tailing</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for entry in data %}
+    <tr>
+      <td>{{ entry["ip"] }}</td>
+      <td>{{ entry["block"] }}</td>
+      <td>{{ entry["tailing"] }}</td>
+      <td>{{ entry["status"] }}</td>
+    </tr>
+    {% end %}
+  </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+  </body>
+</html>
