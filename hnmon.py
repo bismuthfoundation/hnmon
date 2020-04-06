@@ -72,7 +72,7 @@ class ThreadedClient(threading.Thread):
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("pick.html",
+        self.render("monitor.html",
                     state_data=state.state_data)
 
 class SavedHandler(tornado.web.RequestHandler):
@@ -88,12 +88,12 @@ class HypernodeHandler(tornado.web.RequestHandler):
     def post(self):
         checkboxes = self.get_arguments("checkbox")
         redirect_id = save_session(checkboxes)
-        self.redirect("/pick/"+redirect_id)
+        self.redirect("/monitor/"+redirect_id)
 
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
-        (r"/pick/(.*)", HypernodeHandler),
+        (r"/monitor/(.*)", HypernodeHandler),
         (r"/session_register", HypernodeHandler),
         (r"/saved", SavedHandler),
     ])

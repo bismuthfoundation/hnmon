@@ -24,9 +24,9 @@
         <th scope="col">Saved</th>
       </tr>
     </thead>
-    {% for historic_entry in range(highest_saved) %}
+    {% for historic_entry in range(1, highest_saved) %}
     <tr>
-    <td align="left"><a href="/pick/{{ escape(str(historic_entry)) }}">{{ escape(str(historic_entry)) }}</a><br></td>
+    <td align="left"><a href="/monitor/{{ escape(str(historic_entry)) }}">{{ escape(str(historic_entry)) }}</a><br></td>
     </tr>
   {% end %}
 </table>
