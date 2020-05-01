@@ -8,10 +8,14 @@ import threading
 
 class State:
     def update(self):
-        self.link = "https://hypernodes.bismuth.live/status.json"
-        self.state_data = json.loads(requests.get(self.link).text)
-        self.max_block = (max(self.state_data.values()))
-        self.highest_saved = get_id()
+        try:
+            self.link = "https://hypernodes.bismuth.live/status.json"
+            self.state_data = json.loads(requests.get(self.link).text)
+            self.max_block = (max(self.state_data.values()))
+            self.highest_saved = get_id()
+        except:
+            print("Error fetching data, skipping run")
+            pass
 
 def locate(ip_list):
     output_list = []
